@@ -6,3 +6,6 @@ Color greyColor = "8D92A3".toColor();
 TextStyle whiteFontStyle = GoogleFonts.poppins().copyWith(color: Colors.white);
 TextStyle blackFontStyle = GoogleFonts.poppins().copyWith(color: Colors.black);
 TextStyle greyFontStyle = GoogleFonts.poppins().copyWith(color: greyColor);
+
+const String baseUrl = "https://restaurant-api.dicoding.dev/";
+const String imageUrl = "https://restaurant-api.dicoding.dev/images/medium/";

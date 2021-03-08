@@ -3,34 +3,42 @@ part of 'pages.dart';
 class RestaurantListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return GeneralPage(
-      title: "Restaurants",
-      subtitle: "Recommendation restaurants for you!",
-      child: Container(
-        margin: EdgeInsets.symmetric(horizontal: 12),
-        child: FutureBuilder<String>(
-          future: DefaultAssetBundle.of(context)
-              .loadString('assets/local_restaurant.json'),
-          builder: (context, snapshot) {
-            final List<Restaurant> restaurants =
-                parseRestaurants(snapshot.data);
-            if (snapshot.connectionState == ConnectionState.done) {
-              return ListView.builder(
-                shrinkWrap: true,
-                itemCount: restaurants.length,
-                itemBuilder: (context, index) {
-                  return RestaurantCard(restaurant: restaurants[index]);
-                },
-              );
-            } else {
-              return Container(
-                height: MediaQuery.of(context).size.height,
-                child: Center(
+    return ChangeNotifierProvider<ListRestaurantProvider>(
+      create: (_) => ListRestaurantProvider(apiService: ApiService()),
+      child: GeneralPage(
+        title: "Restaurants",
+        subtitle: "Recommendation restaurants for you!",
+        child: Container(
+          margin: EdgeInsets.symmetric(horizontal: 12),
+          child: Consumer<ListRestaurantProvider>(
+            builder: (context, state, _) {
+              if (state.state == ResultState.Loading) {
+                return Center(
                   child: CircularProgressIndicator(),
-                ),
-              );
-            }
-          },
+                );
+              } else if (state.state == ResultState.HasData) {
+                return ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: state.result.restaurants.length,
+                    itemBuilder: (context, index) {
+                      var restaurant = state.result.restaurants[index];
+                      return RestaurantCard(restaurant: restaurant);
+                    });
+              } else if (state.state == ResultState.NoData) {
+                return Center(
+                  child: Text(state.message),
+                );
+              } else if (state.state == ResultState.Error) {
+                return Center(
+                  child: Text(state.message),
+                );
+              } else {
+                return Center(
+                  child: Text(''),
+                );
+              }
+            },
+          ),
         ),
       ),
     );

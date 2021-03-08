@@ -1,23 +1,23 @@
-class Menu {
+part of 'models.dart';
+
+class Menu extends Equatable {
   Menu({
     this.foods,
     this.drinks,
   });
 
-  List<Food> foods;
-  List<Drink> drinks;
+  List<Category> foods;
+  List<Category> drinks;
 
-  Menu.fromJson(Map<String, dynamic> json) {
-    foods = <Food>[];
-    json['foods'].forEach((v) {
-      foods.add(Food.fromJson(v));
-    });
+  factory Menu.fromJson(Map<String, dynamic> json) => Menu(
+        foods:
+            List<Category>.from(json["foods"].map((x) => Category.fromJson(x))),
+        drinks: List<Category>.from(
+            json["drinks"].map((x) => Category.fromJson(x))),
+      );
 
-    drinks = <Drink>[];
-    json['drinks'].forEach((v) {
-      drinks.add(Drink.fromJson(v));
-    });
-  }
+  @override
+  List<Object> get props => throw UnimplementedError();
 }
 
 class Drink {
