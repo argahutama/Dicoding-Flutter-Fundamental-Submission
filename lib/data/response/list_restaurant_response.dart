@@ -19,12 +19,12 @@ class ListRestaurantResponse extends Equatable {
         message: json["message"],
         count: json["count"],
         restaurants: List<Restaurant>.from(
-            json["restaurants"].map((x) => ListRestaurantResponse.fromJson(x))),
+            json["restaurants"].map((x) => Restaurant.fromJson(x))),
       );
 
   factory ListRestaurantResponse.fromJsonNo() => ListRestaurantResponse(
         error: true,
-        message: "Tidak Ada Internet\nPeriksalah Koneksi Anda!",
+        message: "No Internet Connection\nCheck Your Connectivity!",
         count: 0,
         restaurants: [],
       );

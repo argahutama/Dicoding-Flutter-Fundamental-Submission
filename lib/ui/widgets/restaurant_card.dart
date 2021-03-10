@@ -12,7 +12,7 @@ class RestaurantCard extends StatelessWidget {
       width: double.infinity,
       child: GestureDetector(
         onTap: () {
-          Get.to(() => RestaurantDetailsPage(), arguments: this.restaurant);
+          Get.to(() => RestaurantDetailsPage(), arguments: this.restaurant.id);
         },
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 12),
@@ -35,7 +35,8 @@ class RestaurantCard extends StatelessWidget {
                         child: Hero(
                           tag: this.restaurant.pictureId,
                           child: Image.network(
-                            restaurant.pictureId,
+                            "${ApiService.imageUrl}" +
+                                "${restaurant.pictureId}",
                             fit: BoxFit.cover,
                             height: 200,
                             width: 125,

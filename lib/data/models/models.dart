@@ -4,3 +4,4 @@ part 'menu.dart';
 part 'restaurant.dart';
 part 'category.dart';
 part 'customer_review.dart';
+part 'restaurant_details.dart';

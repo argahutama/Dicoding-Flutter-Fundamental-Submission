@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:flutter/foundation.dart';
-import 'package:retaurant_app/data/models/models.dart';
 import 'package:retaurant_app/data/response/response.dart';
 import 'package:retaurant_app/services/services.dart';
 import 'package:retaurant_app/shared/shared.dart';

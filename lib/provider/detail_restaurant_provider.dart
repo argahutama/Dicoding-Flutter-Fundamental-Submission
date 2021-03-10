@@ -2,11 +2,11 @@ part of 'provider.dart';
 
 class DetailRestaurantProvider extends ChangeNotifier {
   final ApiService apiService;
-  final Restaurant restaurant;
+  final String restaurantId;
 
   DetailRestaurantProvider(
-      {@required this.apiService, @required this.restaurant}) {
-    fetchDetailRestaurant(restaurant);
+      {@required this.apiService, @required this.restaurantId}) {
+    fetchDetailRestaurant(restaurantId);
   }
 
   DetailRestaurantResponse _detailRestaurant;
@@ -17,11 +17,11 @@ class DetailRestaurantProvider extends ChangeNotifier {
   DetailRestaurantResponse get result => _detailRestaurant;
   ResultState get state => _state;
 
-  Future<dynamic> fetchDetailRestaurant(Restaurant restaurant) async {
+  Future<dynamic> fetchDetailRestaurant(String restaurantId) async {
     try {
       _state = ResultState.Loading;
       notifyListeners();
-      final restaurants = await apiService.getDetailRestaurant(restaurant.id);
+      final restaurants = await apiService.getDetailRestaurant(restaurantId);
       if (restaurants.restaurant == null) {
         _state = ResultState.NoData;
         notifyListeners();

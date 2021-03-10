@@ -6,8 +6,8 @@ class Menu extends Equatable {
     this.drinks,
   });
 
-  List<Category> foods;
-  List<Category> drinks;
+  final List<Category> foods;
+  final List<Category> drinks;
 
   factory Menu.fromJson(Map<String, dynamic> json) => Menu(
         foods:

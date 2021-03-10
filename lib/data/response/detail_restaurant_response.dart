@@ -9,17 +9,17 @@ class DetailRestaurantResponse extends Equatable {
 
   final bool error;
   final String message;
-  final Restaurant restaurant;
+  final RestaurantDetails restaurant;
 
   factory DetailRestaurantResponse.fromJson(Map<String, dynamic> json) =>
       DetailRestaurantResponse(
         error: json["error"],
         message: json["message"],
-        restaurant: Restaurant.fromJson(json["restaurant"]),
+        restaurant: RestaurantDetails.fromJson(json["restaurant"]),
       );
   factory DetailRestaurantResponse.fromJsonNo() => DetailRestaurantResponse(
         error: true,
-        message: "Tidak Ada Internet\nPeriksalah Koneksi Anda!",
+        message: "No Internet Connection\nCheck Your Connectivity!",
         restaurant: null,
       );
 

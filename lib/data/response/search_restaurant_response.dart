@@ -21,7 +21,7 @@ class SearchRestaurantResponse extends Equatable {
 
   factory SearchRestaurantResponse.fromJsonNo() => SearchRestaurantResponse(
         error: true,
-        message: "Tidak Ada Internet\nPeriksalah Koneksi Anda!",
+        message: "No Internet Connection\nCheck Your Connectivity!",
         restaurants: [],
       );
 

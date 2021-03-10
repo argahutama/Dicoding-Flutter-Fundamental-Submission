@@ -9,15 +9,14 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
-
   cupertino_icons: ^1.0.2
-  get: ^3.26.0
-  google_fonts: 1.1.2
-  supercharged: ^2.0.0
-  http: ^0.12.0+2
   equatable: ^2.0.0
+  flutter_native_splash: ^0.3.2
+  get: ^3.26.0
+  google_fonts: ^1.1.2
+  http: ^0.12.0+2
   provider: ^5.0.0
+  supercharged: ^2.0.0
 
 dev_dependencies:
   flutter_test:
