@@ -19,8 +19,8 @@ class RestaurantDetailsPage extends StatelessWidget {
             return CustomScrollView(
               slivers: <Widget>[
                 SliverAppBar(
-                  leading: new IconButton(
-                    icon: new Icon(Icons.arrow_back, color: Colors.white),
+                  leading: IconButton(
+                    icon: Icon(Icons.arrow_back, color: Colors.white),
                     onPressed: () => Navigator.of(context).pop(),
                   ),
                   expandedHeight: 200,

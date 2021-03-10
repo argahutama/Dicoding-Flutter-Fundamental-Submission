@@ -14,7 +14,7 @@ class SearchRestaurantResponse extends Equatable {
   factory SearchRestaurantResponse.fromJson(Map<String, dynamic> json) =>
       SearchRestaurantResponse(
         error: json["error"],
-        message: json["message"] ?? "Data Gagal",
+        message: json["message"] ?? "Failed to Load",
         restaurants: List<Restaurant>.from(
             json["restaurants"].map((x) => Restaurant.fromJson(x))),
       );

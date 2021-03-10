@@ -32,7 +32,7 @@ class SearchRestaurantsProvider extends ChangeNotifier {
     } on SocketException {
       _state = ResultState.Error;
       notifyListeners();
-      return _message = 'Periksa Koneksi Internet Anda!';
+      return _message = 'Check your connectivity!';
     } catch (e) {
       _state = ResultState.Error;
       notifyListeners();

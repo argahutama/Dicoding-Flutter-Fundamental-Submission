@@ -33,20 +33,37 @@ class GeneralPage extends StatelessWidget {
                   height: 70,
                   padding: EdgeInsets.symmetric(horizontal: 24),
                   color: Colors.white,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
+                  child: Row(
                     children: [
-                      Text(
-                        title,
-                        style: GoogleFonts.poppins(
-                            fontSize: 22, fontWeight: FontWeight.w500),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            title,
+                            style: GoogleFonts.poppins(
+                                fontSize: 22, fontWeight: FontWeight.w500),
+                          ),
+                          Text(
+                            subtitle,
+                            style: GoogleFonts.poppins(
+                                color: "8D92A3".toColor(),
+                                fontWeight: FontWeight.w300),
+                          )
+                        ],
                       ),
-                      Text(
-                        subtitle,
-                        style: GoogleFonts.poppins(
-                            color: "8D92A3".toColor(),
-                            fontWeight: FontWeight.w300),
+                      Expanded(
+                        child: SizedBox(),
+                      ),
+                      IconButton(
+                        icon: Icon(Icons.search, color: Colors.black),
+                        onPressed: () => Get.to(
+                          () =>
+                              ChangeNotifierProvider<SearchRestaurantsProvider>(
+                                  create: (_) => SearchRestaurantsProvider(
+                                      apiService: ApiService()),
+                                  child: RestaurantSearchPage()),
+                        ),
                       )
                     ],
                   ),
