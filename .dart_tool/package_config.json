@@ -63,13 +63,13 @@
     },
     {
       "name": "cupertino_icons",
-      "rootUri": "file:///Users/argahutama/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/cupertino_icons-1.0.2",
+      "rootUri": "file:///Users/argahutama/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/cupertino_icons-1.0.3",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
     {
       "name": "equatable",
-      "rootUri": "file:///Users/argahutama/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/equatable-2.0.0",
+      "rootUri": "file:///Users/argahutama/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/equatable-2.0.3",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -81,13 +81,13 @@
     },
     {
       "name": "ffi",
-      "rootUri": "file:///Users/argahutama/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/ffi-1.0.0",
+      "rootUri": "file:///Users/argahutama/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/ffi-1.1.2",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
     {
       "name": "file",
-      "rootUri": "file:///Users/argahutama/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/file-6.1.0",
+      "rootUri": "file:///Users/argahutama/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/file-6.1.2",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -123,9 +123,9 @@
     },
     {
       "name": "get",
-      "rootUri": "file:///Users/argahutama/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/get-3.26.0",
+      "rootUri": "file:///Users/argahutama/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/get-4.1.4",
       "packageUri": "lib/",
-      "languageVersion": "2.9"
+      "languageVersion": "2.12"
     },
     {
       "name": "google_fonts",
@@ -177,7 +177,7 @@
     },
     {
       "name": "path_provider",
-      "rootUri": "file:///Users/argahutama/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider-2.0.1",
+      "rootUri": "file:///Users/argahutama/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider-2.0.2",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -201,13 +201,13 @@
     },
     {
       "name": "path_provider_windows",
-      "rootUri": "file:///Users/argahutama/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_windows-2.0.0",
+      "rootUri": "file:///Users/argahutama/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_windows-2.0.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
     {
       "name": "pedantic",
-      "rootUri": "file:///Users/argahutama/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/pedantic-1.11.0",
+      "rootUri": "file:///Users/argahutama/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/pedantic-1.11.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -225,13 +225,13 @@
     },
     {
       "name": "plugin_platform_interface",
-      "rootUri": "file:///Users/argahutama/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/plugin_platform_interface-2.0.0",
+      "rootUri": "file:///Users/argahutama/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/plugin_platform_interface-2.0.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
     {
       "name": "process",
-      "rootUri": "file:///Users/argahutama/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/process-4.1.0",
+      "rootUri": "file:///Users/argahutama/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/process-4.2.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -309,7 +309,7 @@
     },
     {
       "name": "win32",
-      "rootUri": "file:///Users/argahutama/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/win32-2.0.0",
+      "rootUri": "file:///Users/argahutama/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/win32-2.0.5",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -338,7 +338,7 @@
       "languageVersion": "2.7"
     }
   ],
-  "generated": "2021-03-10T14:50:40.838315Z",
+  "generated": "2021-07-19T04:48:20.418675Z",
   "generator": "pub",
   "generatorVersion": "2.13.0-101.0.dev"
 }
