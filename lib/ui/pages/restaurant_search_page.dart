@@ -71,8 +71,10 @@ class RestaurantSearchPage extends StatelessWidget {
                       child: Container(
                         width: 200,
                         height: 200,
-                        child: Image.asset('images/not_found.png',
-                            fit: BoxFit.contain),
+                        child: Image.asset(
+                          'assets/images/not_found.png',
+                          fit: BoxFit.contain,
+                        ),
                       ),
                     );
                   } else if (state.state == ResultState.Error) {
