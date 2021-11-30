@@ -41,6 +41,16 @@ class RestaurantDetails extends Equatable {
             json["customerReviews"].map((x) => CustomerReview.fromJson(x))),
       );
 
+  Restaurant toRestaurant() => Restaurant(
+        id: this.id,
+        name: this.name,
+        description: this.description,
+        city: this.city,
+        address: this.address,
+        pictureId: this.pictureId,
+        rating: this.rating,
+      );
+
   @override
   List<Object> get props => [
         id,
