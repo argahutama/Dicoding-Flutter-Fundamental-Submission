@@ -5,6 +5,6 @@ void main() {
   test('Fetch restaurant name', () async {
     final restoData = await ApiService().getListRestaurants();
     var restoName = restoData.restaurants[0];
-    expect(restoName.name, "Kafe Kita");
+    expect(restoName.name, "Melting Pot");
   });
 }
