@@ -2,8 +2,9 @@ part of 'widgets.dart';
 
 class RestaurantCard extends StatelessWidget {
   final Restaurant restaurant;
+  final Function callback;
 
-  RestaurantCard({@required this.restaurant});
+  RestaurantCard({@required this.restaurant, this.callback});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +13,14 @@ class RestaurantCard extends StatelessWidget {
       width: double.infinity,
       child: GestureDetector(
         onTap: () {
-          Get.to(() => RestaurantDetailsPage(), arguments: this.restaurant.id);
+          Get.to(
+            () => RestaurantDetailsPage(),
+            arguments: this.restaurant.id,
+          ).then(
+            (_) => {
+              if (callback != null) callback(),
+            },
+          );
         },
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 12),

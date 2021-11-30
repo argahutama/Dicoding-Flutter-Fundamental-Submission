@@ -3,16 +3,15 @@ part of 'pages.dart';
 class GeneralPage extends StatelessWidget {
   final String title;
   final String subtitle;
-  final Function onBackButtonPressed;
+  final bool isFavoritePage;
   final Widget child;
-  final Color backColor;
 
-  GeneralPage(
-      {this.title = "Title",
-      this.subtitle = "subtitle",
-      this.onBackButtonPressed,
-      this.child,
-      this.backColor});
+  GeneralPage({
+    this.title = "Title",
+    this.subtitle = "subtitle",
+    this.isFavoritePage = false,
+    this.child,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +21,7 @@ class GeneralPage extends StatelessWidget {
           Container(color: Colors.white),
           SafeArea(
             child: Container(
-              color: backColor ?? Colors.white,
+              color: Colors.white,
             ),
           ),
           SafeArea(
@@ -64,7 +63,34 @@ class GeneralPage extends StatelessWidget {
                                       apiService: ApiService()),
                                   child: RestaurantSearchPage()),
                         ),
-                      )
+                      ),
+                      (!isFavoritePage)
+                          ? IconButton(
+                              icon: Icon(Icons.favorite, color: Colors.black),
+                              onPressed: () => Get.to(
+                                () => ChangeNotifierProvider<DbProvider>(
+                                    create: (_) => DbProvider(
+                                        databaseHelper: DatabaseHelper()),
+                                    child: FavoritePage()),
+                              ),
+                            )
+                          : SizedBox(),
+                      (!isFavoritePage)
+                          ? IconButton(
+                              icon: Icon(Icons.settings, color: Colors.black),
+                              onPressed: () => Get.to(
+                                () => ChangeNotifierProvider<SettingProvider>(
+                                  create: (_) => SettingProvider(
+                                    SharedPrefHelper(
+                                      sharedPreferences:
+                                          SharedPreferences.getInstance(),
+                                    ),
+                                  ),
+                                  child: SettingPage(),
+                                ),
+                              ),
+                            )
+                          : SizedBox()
                     ],
                   ),
                 ),

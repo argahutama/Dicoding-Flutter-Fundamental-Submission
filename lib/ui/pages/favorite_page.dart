@@ -1,16 +1,17 @@
 part of 'pages.dart';
 
-class RestaurantListPage extends StatelessWidget {
+class FavoritePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<ListRestaurantProvider>(
-      create: (_) => ListRestaurantProvider(apiService: ApiService()),
+    return ChangeNotifierProvider<DbProvider>(
+      create: (_) => DbProvider(databaseHelper: DatabaseHelper()),
       child: GeneralPage(
-        title: "Restaurants",
-        subtitle: "Recommendation you!",
+        title: "Favorite Restaurants",
+        subtitle: "Recommendation restaurants for you!",
+        isFavoritePage: true,
         child: Container(
           margin: EdgeInsets.symmetric(horizontal: 12),
-          child: Consumer<ListRestaurantProvider>(
+          child: Consumer<DbProvider>(
             builder: (context, state, _) {
               if (state.state == ResultState.Loading) {
                 return Center(
@@ -19,19 +20,14 @@ class RestaurantListPage extends StatelessWidget {
               } else if (state.state == ResultState.HasData) {
                 return ListView.builder(
                     shrinkWrap: true,
-                    itemCount: state.result.restaurants.length,
+                    itemCount: state.list.length,
                     itemBuilder: (context, index) {
-                      var restaurant = state.result.restaurants[index];
-                      return RestaurantCard(restaurant: restaurant);
+                      var restaurant = state.list[index];
+                      return RestaurantCard(
+                        restaurant: restaurant,
+                        callback: () => state.getFavorite(),
+                      );
                     });
-              } else if (state.state == ResultState.NoData) {
-                return Center(
-                  child: Text(state.message),
-                );
-              } else if (state.state == ResultState.Error) {
-                return Center(
-                  child: Text(state.message),
-                );
               } else {
                 return Center(
                   child: Container(

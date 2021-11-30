@@ -4,7 +4,7 @@ class DbProvider extends ChangeNotifier {
   final DatabaseHelper databaseHelper;
 
   DbProvider({@required this.databaseHelper}) {
-    _getFavorite();
+    getFavorite();
   }
 
   ResultState _state;
@@ -13,7 +13,7 @@ class DbProvider extends ChangeNotifier {
   List<Restaurant> _list = [];
   List<Restaurant> get list => _list;
 
-  void _getFavorite() async {
+  void getFavorite() async {
     _list = await databaseHelper.getFavorite();
     if (_list.length > 0)
       _state = ResultState.HasData;
@@ -26,7 +26,7 @@ class DbProvider extends ChangeNotifier {
   void addFavorite(Restaurant restaurant) async {
     try {
       await databaseHelper.insertFavorite(restaurant);
-      _getFavorite();
+      getFavorite();
     } catch (e) {
       _state = ResultState.Error;
     }
@@ -40,7 +40,7 @@ class DbProvider extends ChangeNotifier {
   void removeFavorite(String id) async {
     try {
       await databaseHelper.removeFavorite(id);
-      _getFavorite();
+      getFavorite();
     } catch (e) {
       _state = ResultState.Error;
       notifyListeners();

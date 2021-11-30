@@ -16,12 +16,10 @@ class ApiService {
   Future<DetailRestaurantResponse> getDetailRestaurant(
       String idRestaurant) async {
     final response = await http.get(_baseUrl + "detail/" + idRestaurant);
-    if (response.statusCode == 200) {
-      print(response.body);
+    if (response.statusCode == 200)
       return DetailRestaurantResponse.fromJson(json.decode(response.body));
-    } else {
+    else
       throw Exception('Failed to load');
-    }
   }
 
   Future<SearchRestaurantResponse> searchRestaurant(String query) async {
