@@ -55,34 +55,35 @@ class RestaurantSearchPage extends StatelessWidget {
               padding: EdgeInsets.fromLTRB(12, 12, 12, 0),
               child: Container(
                 child: Consumer<SearchRestaurantsProvider>(
-                    builder: (context, state, _) {
-                  if (state.state == ResultState.Loading) {
-                    return Center(child: CircularProgressIndicator());
-                  } else if (state.state == ResultState.HasData) {
-                    return ListView.builder(
-                        shrinkWrap: true,
-                        itemCount: state.result.restaurants.length,
-                        itemBuilder: (context, index) {
-                          var restaurant = state.result.restaurants[index];
-                          return RestaurantCard(restaurant: restaurant);
-                        });
-                  } else if (state.state == ResultState.NoData) {
-                    return Center(
-                      child: Container(
-                        width: 200,
-                        height: 200,
-                        child: Image.asset(
-                          'assets/images/not_found.png',
-                          fit: BoxFit.contain,
+                  builder: (context, state, _) {
+                    if (state.state == ResultState.Loading) {
+                      return Center(child: CircularProgressIndicator());
+                    } else if (state.state == ResultState.HasData) {
+                      return ListView.builder(
+                          shrinkWrap: true,
+                          itemCount: state.result.restaurants.length,
+                          itemBuilder: (context, index) {
+                            var restaurant = state.result.restaurants[index];
+                            return RestaurantCard(restaurant: restaurant);
+                          });
+                    } else if (state.state == ResultState.NoData) {
+                      return Center(
+                        child: Container(
+                          width: 200,
+                          height: 200,
+                          child: Image.asset(
+                            'assets/images/not_found.png',
+                            fit: BoxFit.contain,
+                          ),
                         ),
-                      ),
-                    );
-                  } else if (state.state == ResultState.Error) {
-                    return Center(child: Text(state.message));
-                  } else {
-                    return Center(child: Text(''));
-                  }
-                }),
+                      );
+                    } else if (state.state == ResultState.Error) {
+                      return Center(child: Text(state.message));
+                    } else {
+                      return Center(child: Text(''));
+                    }
+                  },
+                ),
               ),
             ),
           ),
